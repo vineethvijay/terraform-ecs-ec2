@@ -36,6 +36,8 @@ $ export AWS_SECRET_ACCESS_KEY="secretkey"
 $ export AWS_DEFAULT_REGION="us-east-1"
 ```
 
+#### Build the nginx image with custom port
+
 Create Repository in AWS ECR (for storing the custom nginx image)
 
 ```
@@ -72,6 +74,8 @@ Note: If you have authentication issues while pushing, try login with the help o
 #### If you still have troubles, you can use my public image : `vineethvijay/nginx-custom-port:latest` ;)
 
 
+## Running the Terraform, 
+
 Change the `image` under terraform/files/nginx-task.json
 
 ```
@@ -82,7 +86,9 @@ terraform plan
 terraform apply
 ```
 
-Access the nginx page with the output endpoint. 
-You may also check the in AWS ECS service console to see whether the tasks are in `RUNNING` state`.
+Access the nginx page with the output endpoint (it may take couple of seconds..)
+You may also check the in AWS ECS service console to see whether the tasks are in `RUNNING` state, 
+also the `Target Group` to see if the listeners are healthy.
+
 
 
